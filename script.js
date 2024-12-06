@@ -11,13 +11,13 @@ const personalMovieDB = {
 };
 
 if (personalMovieDB.count > 1 && personalMovieDB.count <= 10) {
-    alert("Watched quite a few films");
+    console.log("Watched quite a few films");
 } else if (personalMovieDB.count > 10 && personalMovieDB.count <= 30) {
-    alert("you are a classic viewer");
+    console.log("you are a classic viewer");
 } else if (personalMovieDB.count > 30) {
-    alert("you are a film buff");
+    console.log("you are a film buff");
 } else {
-    alert("an error occurred");
+    console.log("an error occurred");
 };
 
 for (let i = 0; i < 2; i++) {
@@ -38,4 +38,19 @@ for (let i = 0; i < 2; i++) {
     personalMovieDB.movies[lastWatchedMovie] = rate;
 };
 
-console.log(personalMovieDB);
+function showMyDB(obj) {
+    if (obj.private === false) {
+        console.log(personalMovieDB);
+    };
+}
+
+function writeYourGenres() {
+    for (let i = 0; i < 3; i++) {
+        const answer = prompt(`Your favorite genre number ${i + 1}`);
+        personalMovieDB.genres.push(answer);
+    }
+}
+
+writeYourGenres();
+
+showMyDB(personalMovieDB);
