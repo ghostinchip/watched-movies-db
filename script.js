@@ -10,7 +10,6 @@ const personalMovieDB = {
     private: false
 };
 
-
 //todo
 function start() {
     numberOfFilms = +prompt("How many movies have you already watched", '');
@@ -18,6 +17,8 @@ function start() {
     while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
         numberOfFilms = +prompt("How many movies have you already watched", '');
     }
+
+    return numberOfFilms;
 }
 
 function rememberMyFilms() {
@@ -66,7 +67,7 @@ function writeYourGenres() {
 }
 
 
-start();
+personalMovieDB.count = start();
 
 detectPersonalLevel();
 
