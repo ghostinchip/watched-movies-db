@@ -46,12 +46,14 @@ const personalMovieDB = {
         }
     },
     toggleVisionMyDB: function() {
-        if (this.private === false) {
+        if (this.private) {
+            this.private = false;
+        } else {
             this.private = true;
         }
     },
     showMyDB: function() {
-        if (this.private === false) {
+        if (!this.private) {
             console.log(this);
         }
     },
@@ -61,20 +63,21 @@ const personalMovieDB = {
             if (answer) {
                 this.genres.push(answer);
             } else {
+                console.log("Error");
                 i--;
                 continue;
             }
         }
-        this.genres.forEach(function (item, i) {
+        this.genres.forEach((item, i) => {
             console.log(`Favorite genre ${i + 1} this: ${item}.`);
         });
     }
 };
 
-personalMovieDB.start();
-//console.log(personalMovieDB.count);
-personalMovieDB.rememberMyFilms();
-personalMovieDB.detectPersonalLevel();
-//personalMovieDB.toggleVisionMyDB();
-personalMovieDB.showMyDB();
-personalMovieDB.writeYourGenres();
+// personalMovieDB.start();
+// //console.log(personalMovieDB.count);
+// personalMovieDB.rememberMyFilms();
+// personalMovieDB.detectPersonalLevel();
+// //personalMovieDB.toggleVisionMyDB();
+// personalMovieDB.showMyDB();
+// personalMovieDB.writeYourGenres();
